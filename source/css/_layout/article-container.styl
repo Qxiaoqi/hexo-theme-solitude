@@ -91,11 +91,11 @@
       font-size 15px
 
   code:not([class*='language-'])
-    color var(--efu-white)
+    color var(--efu-code-color, #476582)
     padding 0.2rem 0.4rem
     border-radius 4px
     margin 0 4px
-    background var(--efu-pink)
+    background var(--efu-code-bg, #f0f2f5)
     line-height 2
     box-shadow var(--efu-shadow-border)
 
@@ -108,10 +108,14 @@
     max-height 450px
 
   ul, ol
-    padding 0
-    margin-top 0.4rem
+    padding-left .9em
+    margin .5rem 0 1rem
     list-style none
     counter-reset li 0
+
+    ul, ol
+      margin .35rem 0 .2rem
+      padding-left 1.1em
 
     li
       &:before
@@ -124,7 +128,11 @@
 
       &:not(.tab)
         position relative
-        margin 0.2rem 0
+        margin 0.35rem 0
+        line-height 1.8
+
+        > ul, > ol
+          margin .35rem 0 .15rem
 
         p
           margin 0
@@ -132,7 +140,7 @@
   ul
     > li
       &:not(.tab)
-        padding 0.2em 0.2em 0.2em 1.4em
+        padding 0.2em 0.2em 0.2em 1.5em
 
         &:before
           margin 0
@@ -163,7 +171,7 @@
     > li
 
       &:not(.tab)
-        padding .2em .2em .2em 1.8em
+        padding .2em .2em .2em 2em
 
       &:before
         content counter(li)

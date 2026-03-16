@@ -1,6 +1,133 @@
 .mermaid
   display flex
   justify-content center
+  overflow-x auto
+  padding-bottom .5rem
 
+  svg
+    display block
+    flex-shrink 0
+    max-width none !important
+    height auto
+
+  // ===== Persona (女神异闻录) 配色方案 =====
+  // 方形节点 (rect): #E30B20 红底 + 白字 + 粗黑边框
+  // 菱形节点 (polygon/diamond): #FFD700 黄底 + 黑字 + 粗黑边框
+  // 圆角/椭圆节点: #FF8C00 橙底 + 黑字 + 粗黑边框
+
+  // --- 所有节点统一粗黑边框 ---
+  .node rect,
+  .node circle,
+  .node ellipse,
+  .node polygon,
+  .node path
+    stroke #000000 !important
+    stroke-width 4px !important
+
+  // --- 按形状区分颜色 ---
+  // 方形节点 → 红色
+  .node rect
+    fill #E30B20 !important
+
+  .node rect ~ .label text,
+  .node rect ~ .label span
+    fill #ffffff !important
+    color #ffffff !important
+
+  // 菱形节点（判断/决策）→ 黄色
+  .node polygon
+    fill #FFD700 !important
+
+  .node polygon ~ .label text,
+  .node polygon ~ .label span
+    fill #000000 !important
+    color #000000 !important
+
+  // 圆角矩形 / stadium / 椭圆 → 橙色
+  .node circle,
+  .node ellipse
+    fill #FF8C00 !important
+
+  .node circle ~ .label text,
+  .node circle ~ .label span,
+  .node ellipse ~ .label text,
+  .node ellipse ~ .label span
+    fill #000000 !important
+    color #000000 !important
+
+  // --- 连接线粗黑线 ---
+  .edgePath .path
+    stroke #000000 !important
+    stroke-width 3px !important
+
+  // --- 箭头填充黑色 ---
+  marker path
+    fill #000000 !important
+
+  // --- Edge labels 透明背景（解决白色截断问题）---
+  .edgeLabel
+    background-color transparent !important
+    font-weight bold
+
+  .edgeLabel rect
+    fill none !important
+    stroke none !important
+
+  .edgeLabel span
+    background transparent !important
+    color #000000 !important
+
+  // --- Cluster (subgraph) 粗边框 ---
+  .cluster rect
+    stroke-width 4px !important
+    stroke #000000 !important
+    fill #fff8dc !important
+
+  // --- Sequence Diagram ---
+  .actor
+    stroke-width 4px !important
+    stroke #000000 !important
+    fill #E30B20 !important
+
+  .actor-man circle,
+  .actor-man line
+    stroke #000000 !important
+    stroke-width 3px !important
+
+  text.actor
+    fill #ffffff !important
+
+  line[class*="messageLine"]
+    stroke-width 3px !important
+    stroke #000000 !important
+
+  .activation0,
+  .activation1,
+  .activation2
+    stroke-width 3px !important
+    stroke #000000 !important
+    fill #FF8C00 !important
+
+  .note rect
+    stroke-width 4px !important
+    stroke #000000 !important
+    fill #FFD700 !important
+
+  .note text
+    fill #000000 !important
+
+  .loopLine
+    stroke-width 3px !important
+    stroke #000000 !important
+
+  // --- 默认 text fill ---
   text
-    fill var(--efu-fontcolor) !important
+    fill #000000 !important
+
+  // --- 节点内 label 文字（方形红底需要白字）---
+  .label text
+    fill #ffffff !important
+
+  // --- edge label 文字用黑色 ---
+  .edgeLabel text
+    fill #000000 !important
