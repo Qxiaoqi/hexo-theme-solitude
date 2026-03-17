@@ -40,6 +40,54 @@
     +minWidth768()
       border-radius 12px
 
+  &.pagination-post--inline
+    +minWidth1300()
+      position static
+      width auto
+      height auto
+      right auto
+      bottom auto
+      z-index auto
+      opacity 1
+      overflow hidden
+      cursor default
+      box-shadow var(--efu-shadow-border)
+
+      .prev-post.pull-left
+        display block
+
+      .next-post.pull-right
+        width 50%
+
+      .next-post, .prev-post
+        width 50%
+        background var(--efu-secondbg)
+        text-align left
+
+      .prev-post a
+        border-right var(--efu-main-op)
+        border-right-width .5px
+        border-right-style solid
+        height 150px
+        padding 0
+
+      .next-post a
+        border-left var(--efu-main-op)
+        border-left-width .5px
+        border-left-style solid
+        display flex
+        align-items flex-start
+        height 150px
+        padding 0
+
+      .pagination-info
+        padding 1rem 1.5rem 1rem 1.5rem
+
+      .next_info, .prev_info
+        font-size .9rem
+        font-weight 700
+        margin-bottom 10px
+
   .next-post, .prev-post, .next-post.pull-right, .prev-post.pull-left
     background var(--efu-secondbg)
 

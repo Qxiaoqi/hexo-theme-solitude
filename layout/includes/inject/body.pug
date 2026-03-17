@@ -94,7 +94,9 @@ div
             include ../widgets/third-party/comments/js
         if theme.mermaid
             script.
-                mermaid.run();
+                Promise.resolve(mermaid.run())
+                    .then(() => window.requestAnimationFrame(() => window.initMermaidViewer && window.initMermaidViewer()))
+                    .catch(error => console.error('Mermaid render failed:', error));
         if is_home() && theme.carousel && site.posts.data.filter(item => item.recommend === true).slice(0, 6) || false
             script.
                 carousel_swiper()

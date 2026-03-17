@@ -1,14 +1,22 @@
 .mermaid
-  display flex
-  justify-content center
-  overflow-x auto
-  padding-bottom .5rem
+  position relative
+  display block
+  width 100%
+  margin 1.5rem 0
+  overflow hidden
+  padding 1rem
+  border 1px solid rgba(15, 23, 42, .12)
+  border-radius 22px
+  background #f3f4f6
+  box-shadow 0 16px 40px rgba(15, 23, 42, .06)
 
   svg
     display block
     flex-shrink 0
-    max-width none !important
+    max-width 100% !important
+    width auto
     height auto
+    margin 0 auto
 
   // ===== Persona (女神异闻录) 配色方案 =====
   // 方形节点 (rect): #E30B20 红底 + 白字 + 粗黑边框
@@ -131,3 +139,191 @@
   // --- edge label 文字用黑色 ---
   .edgeLabel text
     fill #000000 !important
+
+.mermaid-toolbar
+  display flex
+  align-items center
+  justify-content space-between
+  gap .75rem
+  margin-bottom .75rem
+
+.mermaid-preview
+  overflow auto
+  max-height clamp(20rem, 60vh, 35rem)
+  padding 0 0 .25rem
+  overscroll-behavior contain
+  -webkit-overflow-scrolling touch
+
+  &::-webkit-scrollbar
+    width 8px
+    height 8px
+
+  &::-webkit-scrollbar-thumb
+    background rgba(15, 23, 42, .18)
+    border-radius 999px
+
+.mermaid-hint
+  color var(--efu-secondtext)
+  font-size .8rem
+
+.mermaid-open
+  border none
+  border-radius 999px
+  padding .45rem .85rem
+  background var(--efu-fontcolor)
+  color var(--efu-card-bg)
+  font-size .78rem
+  font-weight 700
+  cursor pointer
+  transition transform .2s ease, opacity .2s ease
+
+  &:hover
+    opacity .88
+    transform translateY(-1px)
+
+.mermaid-interactive
+  cursor zoom-in
+
+body.mermaid-viewer-open
+  overflow hidden
+
+.mermaid-viewer
+  position fixed
+  inset 0
+  z-index 10000
+  display flex
+  align-items center
+  justify-content center
+  padding clamp(1rem, 2vw, 2rem)
+  background rgba(15, 23, 42, .72)
+  opacity 0
+  pointer-events none
+  transition opacity .2s ease
+
+  &.is-active
+    opacity 1
+    pointer-events auto
+
+.mermaid-viewer__panel
+  display flex
+  flex-direction column
+  width min(96vw, 1500px)
+  height min(92vh, 960px)
+  overflow hidden
+  border var(--style-border)
+  border-radius 24px
+  background var(--efu-card-bg)
+  box-shadow 0 24px 64px rgba(15, 23, 42, .24)
+
+.mermaid-viewer__header
+  display flex
+  align-items center
+  justify-content space-between
+  gap 1rem
+  padding 1rem 1.25rem
+  border-bottom var(--style-border)
+
+.mermaid-viewer__actions
+  display flex
+  align-items center
+  gap .55rem
+  flex-wrap wrap
+  justify-content flex-end
+
+.mermaid-viewer__title
+  font-size 1rem
+  font-weight 700
+
+.mermaid-viewer__hint
+  color var(--efu-secondtext)
+  font-size .82rem
+
+.mermaid-viewer__action
+  border none
+  border-radius 999px
+  min-width 2.3rem
+  padding .45rem .85rem
+  background #e5e7eb
+  color #111827
+  font-size .82rem
+  font-weight 700
+  cursor pointer
+  transition background .2s ease, transform .2s ease
+
+  &:hover
+    background #d1d5db
+    transform translateY(-1px)
+
+.mermaid-viewer__zoom
+  min-width 4rem
+  padding 0 .15rem
+  color #4b5563
+  font-size .82rem
+  font-weight 700
+  text-align center
+
+.mermaid-viewer__close
+  border none
+  border-radius 999px
+  padding .5rem .95rem
+  background var(--efu-fontcolor)
+  color var(--efu-card-bg)
+  font-size .82rem
+  font-weight 700
+  cursor pointer
+
+.mermaid-viewer__body
+  flex 1
+  overflow hidden
+  padding 1rem 1.25rem 1.5rem
+  background #f3f4f6
+
+.mermaid-viewer__stage
+  position relative
+  width 100%
+  height 100%
+  overflow hidden
+  border-radius 18px
+  background #e5e7eb
+  cursor grab
+  touch-action none
+  user-select none
+
+  &.is-dragging
+    cursor grabbing
+
+.mermaid-viewer__canvas
+  position absolute
+  top 0
+  left 0
+  display inline-block
+  width auto
+  max-width none
+  margin 0
+  padding 0
+  border none
+  background transparent
+  box-shadow none
+  overflow visible
+  border-radius 0
+  transform-origin top left
+  will-change transform
+
+  svg
+    margin 0
+
+@media screen and (max-width: 768px)
+  .mermaid
+    padding .85rem
+
+  .mermaid-toolbar
+    flex-direction column
+    align-items flex-start
+
+  .mermaid-viewer__header
+    align-items flex-start
+    flex-direction column
+
+  .mermaid-viewer__actions
+    width 100%
+    justify-content flex-start
