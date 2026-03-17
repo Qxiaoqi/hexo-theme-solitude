@@ -1,25 +1,25 @@
 nav.pagination-post#pagination(class=!page.comment ? 'pagination-post--inline' : '')
     if page.prev && page.next
         .prev-post.pull-left
-            a(href=url_for(page.prev.path))
-                .pagination-info
-                    .label=_p('post.nav.prev')
-                    .prev_info= page.prev.title
-        .next-post.pull-right
             a(href=url_for(page.next.path))
                 .pagination-info
+                    .label=_p('post.nav.prev')
+                    .prev_info= page.next.title
+        .next-post.pull-right
+            a(href=url_for(page.prev.path))
+                .pagination-info
                     .label=_p('post.nav.next')
-                    .next_info= page.next.title
+                    .next_info= page.prev.title
     else
         if !page.prev && page.next
-            .next-post.pull-full
+            .prev-post.pull-full
                 a(href=url_for(page.next.path))
                     div.pagination-info
-                        .label=_p('post.nav.next')
-                        .next_info= page.next.title
+                        .label=_p('post.nav.prev')
+                        .prev_info= page.next.title
         if !page.next && page.prev
-            .prev-post.pull-full
+            .next-post.pull-full
                 a(href=url_for(page.prev.path))
                     .pagination-info
-                        .label=_p('post.nav.prev')
-                        .prev_info= page.prev.title
+                        .label=_p('post.nav.next')
+                        .next_info= page.prev.title
