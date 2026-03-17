@@ -39,4 +39,15 @@ if skills || careers
                             .careers-item
                                 .circle(style=`background:${item.color}`)
                                 .name= `${item.school}, ${item.major}`
-                    img.author-content-img(src=careers.image, alt=careers.title)
+                    .careers-timeline(style=`--career-count:${careers.items.length}`)
+                        each item, index in careers.items
+                            - const majorParts = item.major.split(' / ')
+                            - const careerRole = majorParts[0] || ''
+                            - const careerTime = majorParts[1] || majorParts[0] || ''
+                            .careers-timeline-item(style=`--career-color:${item.color}; --career-index:${index}`)
+                                .careers-timeline-time= careerTime
+                                .careers-timeline-marker
+                                .careers-timeline-card
+                                    .careers-timeline-school= item.school
+                                    if careerRole && careerRole !== careerTime
+                                        .careers-timeline-role= careerRole

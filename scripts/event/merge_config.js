@@ -225,7 +225,7 @@ hexo.extend.filter.register('before_generate', () => {
             loop: true,
             page: '/message/'
         },
-        meting_api: "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r",
+        meting_api: "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r",
         music: {
             enable: false,
             id: '8407304077',
